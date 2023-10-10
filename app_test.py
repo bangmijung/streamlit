@@ -57,16 +57,15 @@ with st.form(key="my_form1"):
         make_report()
 def make_report():
     st.code(text1, line_numbers=True)
-    with st.form(key="my_form2"):
-        reply = chatGPT4(api_key, text2, text1)
-        st.text("⚡ GPT reply : "+reply)
-        pattern1 = re.compile("from (.*?)\s")
-        labels_from_st_tags = st_tags(
-            value=pattern1.findall(text1),
-            maxtags=3,
-            #suggestions=["사회/경제", "안전", "교통"],
-            label="",
-        )
+    reply = chatGPT4(api_key, text2, text1)
+    st.text("⚡ GPT reply : "+reply)
+    pattern1 = re.compile("from (.*?)\s")
+    labels_from_st_tags = st_tags(
+        value=pattern1.findall(text1),
+        maxtags=3,
+        #suggestions=["사회/경제", "안전", "교통"],
+        label="",
+    )
 
 
 ################################################################################################
