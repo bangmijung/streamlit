@@ -2,7 +2,7 @@ import streamlit as st
 from streamlit_tags import st_tags
 
 st.title("Test")
-lst = ["1","2","6"]
+lst = ["1","2","6","7"]
 st.multiselect("label",lst,lst)
 keywords = st_tags(
     label='# Enter Keywords:',
