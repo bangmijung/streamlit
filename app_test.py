@@ -56,13 +56,6 @@ with st.form(key="my_form1"):
         st.success("✅ SQL 쿼리가 입력되었습니다!")
         st.code(text1, line_numbers=True)
         reply = chatGPT4(api_key, text2, text1)
-        pattern1 = re.compile("from (.*?)\s")
-        labels_from_st_tags = st_tags(
-            value=pattern1.findall(text1),
-            maxtags=3,
-            #suggestions=["사회/경제", "안전", "교통"],
-            label="",
-        )
         st.text("⚡ GPT reply : "+reply)
 
 ################################################################################################
