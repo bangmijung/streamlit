@@ -60,7 +60,7 @@ with st.form(key="my_form"):
             label="",
         )
         st.success("✅ SQL 쿼리가 입력되었습니다!")
-        st.code(text, line_numbers=True)
+        st.code(text1, line_numbers=True)
         reply = chatGPT4(api_key, text2, text1)
         st.text(reply)
 ################################################################################################
