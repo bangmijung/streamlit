@@ -5,6 +5,7 @@ from streamlit_tags import st_tags
 
 # query = "SELECT NM_BUS_STOPD FROM GNJJ_BUS_INFO_GUIDE_I_STS WHERE BUS_STOPC = '381239013"
 def chatGPT4(api_key, db_info, query):
+    openai.api_key=api_key
     # 인덴트 수정
     messages = []
     order2 = f"""테이블 정보는 다음과 같아.
