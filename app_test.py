@@ -54,12 +54,8 @@ with st.form(key="my_form1"):
     submit_button1 = st.form_submit_button(label="Submit1")
     if summit_button1:
         st.success("✅ SQL 쿼리가 입력되었습니다!")
-        make_report()
-def make_report():
-    with st.form(key="my_form2"):
         st.code(text1, line_numbers=True)
         reply = chatGPT4(api_key, text2, text1)
-        st.text("⚡ GPT reply : "+reply)
         pattern1 = re.compile("from (.*?)\s")
         labels_from_st_tags = st_tags(
             value=pattern1.findall(text1),
@@ -67,8 +63,7 @@ def make_report():
             #suggestions=["사회/경제", "안전", "교통"],
             label="",
         )
-        submit_button2 = st.form_submit_button(label="Submit2")
-
+        st.text("⚡ GPT reply : "+reply)
 
 ################################################################################################
 
