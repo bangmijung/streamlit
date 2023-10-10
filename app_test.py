@@ -1,3 +1,4 @@
+import re
 import openai
 import streamlit as st
 from streamlit_tags import st_tags
@@ -51,17 +52,17 @@ with st.form(key="my_form"):
     )
     submit_button = st.form_submit_button(label="Submit")
     if submit_button:
-    pattern1 = re.compile("from (.*?)\s")
-    labels_from_st_tags = st_tags(
-        value=pattern1.findall(text1),
-        maxtags=3,
-        #suggestions=["사회/경제", "안전", "교통"],
-        label="",
-    )
-    st.success("✅ SQL 쿼리가 입력되었습니다!")
-    st.code(text, line_numbers=True)
-    reply = chatGPT4(api_key, text2, text1)
-    st.text(reply)
+        pattern1 = re.compile("from (.*?)\s")
+        labels_from_st_tags = st_tags(
+            value=pattern1.findall(text1),
+            maxtags=3,
+            #suggestions=["사회/경제", "안전", "교통"],
+            label="",
+        )
+        st.success("✅ SQL 쿼리가 입력되었습니다!")
+        st.code(text, line_numbers=True)
+        reply = chatGPT4(api_key, text2, text1)
+        st.text(reply)
 ################################################################################################
 
 
