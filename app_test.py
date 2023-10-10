@@ -17,7 +17,7 @@ def chatGPT4(api_key, db_info, query):
                 {"role": "user", "content": order2},
             )
             chat = openai.ChatCompletion.create(
-                model="gpt-4", messages=messages
+                model="gpt-3.5", messages=messages
             )
             reply = chat.choices[0].message.content
             #print(f"ChatGPT:\n {reply}")
@@ -56,8 +56,8 @@ with st.form(key="my_form1"):
     if submit_button:
         st.success("✅ SQL 쿼리가 입력되었습니다!")
         st.code(text1, line_numbers=True)
-        #reply = chatGPT4(api_key, text2, text1)
-        #st.text("⚡ GPT reply : "+reply)
+        reply = chatGPT4(api_key, text2, text1)
+        st.text("⚡ GPT reply : "+reply)
 
 ################################################################################################
 
