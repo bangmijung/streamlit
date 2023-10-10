@@ -56,8 +56,8 @@ with st.form(key="my_form1"):
     if summit_button:
         st.success("✅ SQL 쿼리가 입력되었습니다!")
         st.code(text1, line_numbers=True)
-        reply = chatGPT4(api_key, text2, text1)
-        st.text("⚡ GPT reply : "+reply)
+        #reply = chatGPT4(api_key, text2, text1)
+        #st.text("⚡ GPT reply : "+reply)
 
 ################################################################################################
 
