@@ -30,7 +30,7 @@ st.title("⚡ Query Up!")
 st.text("AI융합캡스톤디자인과창업_20180802방미정_chatGPT활용_중간과제")
 ################################################################################################
 api_key = st.text_input(label="Open AI에서 발급받은 API KEY를 입력하세요!",type="password", placeholder="API KEY")
-with st.form(key="my_form"):
+with st.form(key="my_form1"):
     text1 = st.text_area(
         # Instructions
         "해석을 원하시는 SQL 쿼리를 입력하세요",
@@ -52,9 +52,10 @@ with st.form(key="my_form"):
         help="DB정보를 입력하세요!"
     )
     submit_button = st.form_submit_button(label="Submit")
-    if submit_button:
+if submit_button:
+    with st.form(key="my_form2"):
         reply = chatGPT4(api_key, text2, text1)
-        st.title("⚡ Query Up!"+reply)
+        st.text("⚡ GPT reply : "+reply)
         pattern1 = re.compile("from (.*?)\s")
         labels_from_st_tags = st_tags(
             value=pattern1.findall(text1),
