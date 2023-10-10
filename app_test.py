@@ -19,7 +19,7 @@ def chatGPT4(api_key, db_info, query):
                 model="gpt-4", messages=messages
             )
             reply = chat.choices[0].message.content
-            print(f"ChatGPT:\n {reply}")
+            #print(f"ChatGPT:\n {reply}")
     except:
         reply = ""
         pass
@@ -52,6 +52,8 @@ with st.form(key="my_form"):
     )
     submit_button = st.form_submit_button(label="Submit")
     if submit_button:
+        reply = chatGPT4(api_key, text2, text1)
+        st.title("⚡ Query Up!"+reply)
         pattern1 = re.compile("from (.*?)\s")
         labels_from_st_tags = st_tags(
             value=pattern1.findall(text1),
@@ -61,8 +63,7 @@ with st.form(key="my_form"):
         )
         st.success("✅ SQL 쿼리가 입력되었습니다!")
         st.code(text1, line_numbers=True)
-        reply = chatGPT4(api_key, text2, text1)
-        st.text(reply)
+
 ################################################################################################
 
 
