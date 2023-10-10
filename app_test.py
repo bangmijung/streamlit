@@ -52,7 +52,11 @@ with st.form(key="my_form1"):
         help="DB정보를 입력하세요!"
     )
     submit_button = st.form_submit_button(label="Submit")
-if submit_button:
+    if summit_button:
+        st.success("✅ SQL 쿼리가 입력되었습니다!")
+        make_report()
+def make_report():
+    st.code(text1, line_numbers=True)
     with st.form(key="my_form2"):
         reply = chatGPT4(api_key, text2, text1)
         st.text("⚡ GPT reply : "+reply)
@@ -63,8 +67,7 @@ if submit_button:
             #suggestions=["사회/경제", "안전", "교통"],
             label="",
         )
-        st.success("✅ SQL 쿼리가 입력되었습니다!")
-        st.code(text1, line_numbers=True)
+
 
 ################################################################################################
 
