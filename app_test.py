@@ -1,4 +1,4 @@
-import streamlit
+import streamlit as st
 
 st.title("Test")
 lst = ["1","2","6"]
