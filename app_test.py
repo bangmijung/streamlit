@@ -22,7 +22,7 @@ def chatGPT4(api_key, db_info, query):
             reply = chat.choices[0].message.content
             #print(f"ChatGPT:\n {reply}")
     except:
-        reply = ""
+        reply = " frail"
         pass
     return reply
 ################################################################################################
