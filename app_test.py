@@ -12,7 +12,7 @@ def chatGPT4(api_key, db_info, query):
 {db_info}
 위 테이블 정보를 바탕으로 {query} 쿼리를 해석해줘"""
     try:
-        if order1:
+        if order2:
             messages.append(
                 {"role": "user", "content": order2},
             )
