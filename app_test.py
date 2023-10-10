@@ -51,8 +51,9 @@ with st.form(key="my_form1"):
         # The tooltip displayed when the user hovers over the text area.
         help="DB정보를 입력하세요!"
     )
-    submit_button1 = st.form_submit_button(label="Submit1")
-    if summit_button1:
+    submit_button = st.form_submit_button(label="Submit")
+    
+    if summit_button:
         st.success("✅ SQL 쿼리가 입력되었습니다!")
         st.code(text1, line_numbers=True)
         reply = chatGPT4(api_key, text2, text1)
