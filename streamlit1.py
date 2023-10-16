@@ -12,13 +12,14 @@ import openai
 ###################################################################################################
 # 0. dataset
 import os
-json_lst = os.listdir("C:/Users/bangm/Desktop/AI융합캡스톤디자인과창업/info")
+json_lst = os.listdir("https://github.com/bangmijung/streamlit/blob/main/")
 total_df = pd.DataFrame([])
 for json_name in json_lst:
-    with open("C:/Users/bangm/Desktop/AI융합캡스톤디자인과창업/info/"+json_name, "r",encoding='utf-8') as db_anno_json:
-        db_anno = json.load(db_anno_json)
-        db_anno_df = pd.DataFrame(db_anno["data"])
-        total_df = pd.concat([total_df,db_anno_df],axis=0)
+    if "json" in json_name:
+        with open("C:/Users/bangm/Desktop/AI융합캡스톤디자인과창업/info/"+json_name, "r",encoding='utf-8') as db_anno_json:
+            db_anno = json.load(db_anno_json)
+            db_anno_df = pd.DataFrame(db_anno["data"])
+            total_df = pd.concat([total_df,db_anno_df],axis=0)
 total_df.reset_index(drop=True, inplace=True)
 ###################################################################################################
 # 1. page config & title
