@@ -1,0 +1,264 @@
+{
+	"Dataset": {
+		"identifier": "TEXT_NL2SQL_2022",
+		"name": "자연어 기반 질의 검색 생성 데이터",
+		"src_path": "/dataSet/text/",
+		"label_path": "/dataSet/text/",
+		"category": 9,
+		"type": 0
+	},
+	"data": [
+		{
+			"source": "해양경찰청",
+			"db_id": "publicdata_climate_3041",
+			"table_names_original": [
+				"C_STS_KCG_EQ_REPAIR_CO"
+			],
+			"table_names": [
+				"해양경찰청 장비수리업체 현황"
+			],
+			"column_names_original": [
+				[
+					-1,
+					"*"
+				],
+				[
+					0,
+					"CORPORATE_NMC"
+				],
+				[
+					0,
+					"INDUSTRYD"
+				],
+				[
+					0,
+					"ADDRESSE"
+				]
+			],
+			"column_names": [
+				[
+					-1,
+					"*"
+				],
+				[
+					0,
+					"회사명"
+				],
+				[
+					0,
+					"업종"
+				],
+				[
+					0,
+					"주소"
+				]
+			],
+			"column_types": [
+				"text",
+				"text",
+				"text",
+				"text"
+			],
+			"foreign_keys": [],
+			"primary_keys": []
+		},
+		{
+			"source": "행정안전부",
+			"db_id": "publicdata_climate_2314",
+			"table_names_original": [
+				"STS_STEEP_SLOPE_MOIS"
+			],
+			"table_names": [
+				"행정안전부 급경사지 현황"
+			],
+			"column_names_original": [
+				[
+					-1,
+					"*"
+				],
+				[
+					0,
+					"MANAGEMENT_NUMV"
+				],
+				[
+					0,
+					"STEEP_SLOPE_DESIGNATIONW"
+				],
+				[
+					0,
+					"NM_ENFORCEMENT_AGENCYX"
+				],
+				[
+					0,
+					"MANAGEMENT_SJ_CLASY"
+				],
+				[
+					0,
+					"CITY_PROVINCEZ"
+				],
+				[
+					0,
+					"C_C_C_D_Y"
+				],
+				[
+					0,
+					"DETAILED_ADDRESSB"
+				],
+				[
+					0,
+					"ROAD_LISTING_ADDRESSC"
+				],
+				[
+					0,
+					"MOUNTAIN_ADDRESS_STAD"
+				],
+				[
+					0,
+					"MAIN_STREET_NUME"
+				],
+				[
+					0,
+					"SITE_NUMF"
+				]
+			],
+			"column_names": [
+				[
+					-1,
+					"*"
+				],
+				[
+					0,
+					"관리번호"
+				],
+				[
+					0,
+					"급경사지명"
+				],
+				[
+					0,
+					"시행청명"
+				],
+				[
+					0,
+					"관리주체구분"
+				],
+				[
+					0,
+					"시도"
+				],
+				[
+					0,
+					"시군구"
+				],
+				[
+					0,
+					"상세주소"
+				],
+				[
+					0,
+					"도로명상세주소"
+				],
+				[
+					0,
+					"산주소여부"
+				],
+				[
+					0,
+					"주지번"
+				],
+				[
+					0,
+					"부지번"
+				]
+			],
+			"column_types": [
+				"text",
+				"number",
+				"text",
+				"text",
+				"text",
+				"text",
+				"text",
+				"text",
+				"text",
+				"text",
+				"number",
+				"number"
+			],
+			"foreign_keys": [],
+			"primary_keys": []
+		},
+		{
+			"source": "환경부",
+			"db_id": "publicdata_climate_5710",
+			"table_names_original": [
+				"ME_ENV_STS_SYS_ENV_STS_T_INFO"
+			],
+			"table_names": [
+				"환경부 환경부 환경통계정보시스템 환경통계표 정보"
+			],
+			"column_names_original": [
+				[
+					-1,
+					"*"
+				],
+				[
+					0,
+					"STATISTICS_ITEM_IDR"
+				],
+				[
+					0,
+					"STATISTICAL_ITEM_NMS"
+				],
+				[
+					0,
+					"STATISTICS_TABLE_IDT"
+				],
+				[
+					0,
+					"S_R_VA"
+				],
+				[
+					0,
+					"FIRST_RE_DTV"
+				]
+			],
+			"column_names": [
+				[
+					-1,
+					"*"
+				],
+				[
+					0,
+					"통계항목 아이디"
+				],
+				[
+					0,
+					"통계항목명"
+				],
+				[
+					0,
+					"통계표 아이디"
+				],
+				[
+					0,
+					"통계표명"
+				],
+				[
+					0,
+					"최초 등록일"
+				]
+			],
+			"column_types": [
+				"text",
+				"text",
+				"text",
+				"text",
+				"text",
+				"text"
+			],
+			"foreign_keys": [],
+			"primary_keys": []
+		}
+	]
+}

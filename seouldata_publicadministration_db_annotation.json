@@ -1,0 +1,273 @@
+{
+	"Dataset": {
+		"identifier": "TEXT_NL2SQL_2022",
+		"name": "자연어 기반 질의 검색 생성 데이터",
+		"src_path": "/dataSet/text/",
+		"label_path": "/dataSet/text/",
+		"category": 9,
+		"type": 0
+	},
+	"data": [
+		{
+			"source": "서울특별시",
+			"db_id": "seouldata_publicadministration_1292",
+			"table_names_original": [
+				"TB_PUBLIC_WIFI_INFO_G_B"
+			],
+			"table_names": [
+				"서울시 강북구 공공와이파이 서비스 위치 정보"
+			],
+			"column_names_original": [
+				[
+					-1,
+					"*"
+				],
+				[
+					0,
+					"X_SWIFI_MGR_NO"
+				],
+				[
+					0,
+					"X_SWIFI_WRDOFC"
+				],
+				[
+					0,
+					"X_SWIFI_MAIN_NM"
+				],
+				[
+					0,
+					"X_SWIFI_ADRES1"
+				],
+				[
+					0,
+					"X_SWIFI_ADRES2"
+				],
+				[
+					0,
+					"X_SWIFI_INSTL_TY"
+				],
+				[
+					0,
+					"X_SWIFI_INSTL_MBY"
+				],
+				[
+					0,
+					"X_SWIFI_SVC_SE"
+				],
+				[
+					0,
+					"X_SWIFI_CMCWR"
+				],
+				[
+					0,
+					"X_SWIFI_CNSTC_YEAR"
+				],
+				[
+					0,
+					"X_SWIFI_INOUT_DOOR"
+				],
+				[
+					0,
+					"X_SWIFI_REMARS3"
+				]
+			],
+			"column_names": [
+				[
+					-1,
+					"*"
+				],
+				[
+					0,
+					"관리번호"
+				],
+				[
+					0,
+					"자치구"
+				],
+				[
+					0,
+					"와이파이명"
+				],
+				[
+					0,
+					"도로명주소"
+				],
+				[
+					0,
+					"상세주소"
+				],
+				[
+					0,
+					"설치유형"
+				],
+				[
+					0,
+					"설치기관"
+				],
+				[
+					0,
+					"서비스구분"
+				],
+				[
+					0,
+					"망종류"
+				],
+				[
+					0,
+					"설치년도"
+				],
+				[
+					0,
+					"실내외구분"
+				],
+				[
+					0,
+					"와이파이접속환경"
+				]
+			],
+			"column_types": [
+				"text",
+				"text",
+				"text",
+				"text",
+				"text",
+				"text",
+				"text",
+				"text",
+				"text",
+				"text",
+				"time",
+				"text",
+				"text"
+			],
+			"foreign_keys": [],
+			"primary_keys": []
+		},
+		{
+			"source": "서울특별시",
+			"db_id": "seouldata_publicadministration_1303",
+			"table_names_original": [
+				"TB_PUBLIC_WIFI_INFO_J_R"
+			],
+			"table_names": [
+				"서울시 중랑구 공공와이파이 서비스 위치 정보"
+			],
+			"column_names_original": [
+				[
+					-1,
+					"*"
+				],
+				[
+					0,
+					"X_SWIFI_MGR_NO"
+				],
+				[
+					0,
+					"X_SWIFI_WRDOFC"
+				],
+				[
+					0,
+					"X_SWIFI_MAIN_NM"
+				],
+				[
+					0,
+					"X_SWIFI_ADRES1"
+				],
+				[
+					0,
+					"X_SWIFI_ADRES2"
+				],
+				[
+					0,
+					"X_SWIFI_INSTL_TY"
+				],
+				[
+					0,
+					"X_SWIFI_SVC_SE"
+				],
+				[
+					0,
+					"X_SWIFI_CNSTC_YEAR"
+				],
+				[
+					0,
+					"X_SWIFI_INOUT_DOOR"
+				],
+				[
+					0,
+					"LAT"
+				],
+				[
+					0,
+					"LNT"
+				]
+			],
+			"column_names": [
+				[
+					-1,
+					"*"
+				],
+				[
+					0,
+					"관리번호"
+				],
+				[
+					0,
+					"자치구"
+				],
+				[
+					0,
+					"와이파이명"
+				],
+				[
+					0,
+					"도로명주소"
+				],
+				[
+					0,
+					"상세주소"
+				],
+				[
+					0,
+					"설치유형"
+				],
+				[
+					0,
+					"서비스구분"
+				],
+				[
+					0,
+					"설치년도"
+				],
+				[
+					0,
+					"실내외구분"
+				],
+				[
+					0,
+					"X좌표"
+				],
+				[
+					0,
+					"Y좌표"
+				]
+			],
+			"column_types": [
+				"text",
+				"text",
+				"text",
+				"text",
+				"text",
+				"text",
+				"text",
+				"text",
+				"time",
+				"text",
+				"number",
+				"number"
+			],
+			"foreign_keys": [],
+			"primary_keys": []
+		}
+	]
+}
