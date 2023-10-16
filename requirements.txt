@@ -1,3 +1,6 @@
+pandas
+numpy
 streamlit
 streamlit-tags
+streamlit-option-menu
 openai
