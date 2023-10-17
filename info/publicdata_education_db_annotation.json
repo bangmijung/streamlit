@@ -1,0 +1,397 @@
+{
+	"Dataset": {
+		"identifier": "TEXT_NL2SQL_2022",
+		"name": "자연어 기반 질의 검색 생성 데이터",
+		"src_path": "/dataSet/text/",
+		"label_path": "/dataSet/text/",
+		"category": 9,
+		"type": 0
+	},
+	"data": [
+		{
+			"source": "경상북도교육청 경상북도예천교육지원청",
+			"db_id": "publicdata_education_5093",
+			"table_names_original": [
+				"GBE_GB_YECHEON_O_EDU_C_STS_HAGWON"
+			],
+			"table_names": [
+				"경상북도교육청 경상북도예천교육지원청 학원 교습소 현황"
+			],
+			"column_names_original": [
+				[
+					-1,
+					"*"
+				],
+				[
+					0,
+					"SORTATIONE"
+				],
+				[
+					0,
+					"NUMF"
+				],
+				[
+					0,
+					"NM_ACADEMYG"
+				],
+				[
+					0,
+					"ADDRESSH"
+				],
+				[
+					0,
+					"PHONE_NUMI"
+				]
+			],
+			"column_names": [
+				[
+					-1,
+					"*"
+				],
+				[
+					0,
+					"구분"
+				],
+				[
+					0,
+					"순번"
+				],
+				[
+					0,
+					"학원명"
+				],
+				[
+					0,
+					"주소"
+				],
+				[
+					0,
+					"전화번호"
+				]
+			],
+			"column_types": [
+				"text",
+				"text",
+				"number",
+				"text",
+				"text",
+				"text"
+			],
+			"foreign_keys": [],
+			"primary_keys": []
+		},
+		{
+			"source": "충청남도 보령시",
+			"db_id": "publicdata_education_390",
+			"table_names_original": [
+				"APP_LIBRARY_CLUBS_BORYEONG_CHUNGNAM"
+			],
+			"table_names": [
+				"충청남도 보령시 도서관동아리방신청정보"
+			],
+			"column_names_original": [
+				[
+					-1,
+					"*"
+				],
+				[
+					0,
+					"APPLICATION_DATE"
+				],
+				[
+					0,
+					"APPLICATION_TIME"
+				],
+				[
+					0,
+					"MEETING_NAME"
+				],
+				[
+					0,
+					"PURPOSE_OF_USE"
+				],
+				[
+					0,
+					"DATA_STANDARD_DATE"
+				]
+			],
+			"column_names": [
+				[
+					-1,
+					"*"
+				],
+				[
+					0,
+					"신청일"
+				],
+				[
+					0,
+					"신청시간"
+				],
+				[
+					0,
+					"모임명"
+				],
+				[
+					0,
+					"사용목적"
+				],
+				[
+					0,
+					"데이터기준일자"
+				]
+			],
+			"column_types": [
+				"text",
+				"time",
+				"text",
+				"text",
+				"text",
+				"time"
+			],
+			"foreign_keys": [],
+			"primary_keys": []
+		},
+		{
+			"source": "한국산업인력공단",
+			"db_id": "publicdata_education_5088",
+			"table_names_original": [
+				"HRDK_HRD4U_CONTENT_STS"
+			],
+			"table_names": [
+				"한국산업인력공단 HRD4U 콘텐츠 현황"
+			],
+			"column_names_original": [
+				[
+					-1,
+					"*"
+				],
+				[
+					0,
+					"CONTENT_TYPEW"
+				],
+				[
+					0,
+					"CONTENT_FIELDX"
+				],
+				[
+					0,
+					"CONTENT_NMY"
+				],
+				[
+					0,
+					"NEXT_NMZ"
+				],
+				[
+					0,
+					"PRODUCTION_DTA"
+				],
+				[
+					0,
+					"SOURCESB"
+				]
+			],
+			"column_names": [
+				[
+					-1,
+					"*"
+				],
+				[
+					0,
+					"콘텐츠 유형"
+				],
+				[
+					0,
+					"콘텐츠 분야"
+				],
+				[
+					0,
+					"콘텐츠명"
+				],
+				[
+					0,
+					"차시명"
+				],
+				[
+					0,
+					"제작일"
+				],
+				[
+					0,
+					"출처"
+				]
+			],
+			"column_types": [
+				"text",
+				"text",
+				"text",
+				"text",
+				"text",
+				"text",
+				"text"
+			],
+			"foreign_keys": [],
+			"primary_keys": []
+		},
+		{
+			"source": "경기도 광주시",
+			"db_id": "publicdata_education_13524",
+			"table_names_original": [
+				"LIST_GGIC_POPULAR_BOOKS",
+				"GGGJ_BOOK_LOAN_INFO_STS"
+			],
+			"table_names": [
+				"경기도 이천시 인기도서목록",
+				"경기도 광주시 도서대출정보현황"
+			],
+			"column_names_original": [
+				[
+					-1,
+					"*"
+				],
+				[
+					0,
+					"NUMQ"
+				],
+				[
+					0,
+					"BOOK_NMR"
+				],
+				[
+					0,
+					"AUTHORS"
+				],
+				[
+					0,
+					"PUBLISHING_HOUSET"
+				],
+				[
+					0,
+					"YEAR_ISSUE_YEARU"
+				],
+				[
+					0,
+					"NUM_LOANSV"
+				],
+				[
+					0,
+					"BASE_QUARTERW"
+				],
+				[
+					1,
+					"CITY_COUNTY_NMM"
+				],
+				[
+					1,
+					"LIBRARY_NMN"
+				],
+				[
+					1,
+					"BOOK_NMO"
+				],
+				[
+					1,
+					"I_S_B_N_Q"
+				],
+				[
+					1,
+					"C_S_K_D_C_M_RC"
+				],
+				[
+					1,
+					"DT_TIME_LOANR"
+				],
+				[
+					1,
+					"DATA_BASE_DTS"
+				]
+			],
+			"column_names": [
+				[
+					-1,
+					"*"
+				],
+				[
+					0,
+					"순번"
+				],
+				[
+					0,
+					"도서명"
+				],
+				[
+					0,
+					"저자"
+				],
+				[
+					0,
+					"출판사"
+				],
+				[
+					0,
+					"발행년도"
+				],
+				[
+					0,
+					"대출횟수"
+				],
+				[
+					0,
+					"기준분기"
+				],
+				[
+					1,
+					"시군명"
+				],
+				[
+					1,
+					"도서관명"
+				],
+				[
+					1,
+					"도서명"
+				],
+				[
+					1,
+					"국제표준도서번호"
+				],
+				[
+					1,
+					"분류기호 한국십진분류법"
+				],
+				[
+					1,
+					"대출일시"
+				],
+				[
+					1,
+					"데이터기준일자"
+				]
+			],
+			"column_types": [
+				"text",
+				"number",
+				"text",
+				"text",
+				"text",
+				"number",
+				"number",
+				"text",
+				"text",
+				"text",
+				"text",
+				"text",
+				"number",
+				"time",
+				"time"
+			],
+			"foreign_keys": [
+				[
+					10,
+					2
+				]
+			],
+			"primary_keys": []
+		}
+	]
+}
