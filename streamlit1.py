@@ -51,12 +51,14 @@ def correct_indent(query, gpt_ver):
 def query_with_gpt(info_for_gpt, query):
     messages = []
     if info_for_gpt != []:
-        hint = f"""테이블 정보는 {info_for_gpt}와 같아. 이 테이블 정보의 테이블 이름과 한국어 칼럼명을 참고해서"""
+        hint = f"""테이블 정보는 아래와 같아.
+{info_for_gpt}
+이 테이블 정보의 테이블 이름과 한국어 칼럼명을 참고해서"""
     else:
         hint = "안타깝지만 우리에게 테이블 정보가 없는 상황이야. 자의적으로 해석하지 말고,"
     try:
         f_string = f"""{hint}
-{query} 쿼리의 의미를 해석해줘. 테이블에 대한 설명은 하지마. 그리고 존댓말로 간결하게 설명해줘."""
+{query} 쿼리의 의미를 해석해줘. 그리고 존댓말로 간결하게 설명해줘."""
 
         messages = []
         if f_string:
@@ -121,7 +123,7 @@ def submit_test():
                             st.write("✔ 테이블명 : "+target_df["table_names_original"].item())
                             # 칼럼 별 이름, 한글이름, 데이터 타입 정보가 담긴 데이터프레임
                             st.write(pd.DataFrame(ast.literal_eval(target_df["info_lst"].item()),columns=["column_names_original", "column_names", "type"]))
-                            info_for_gpt = target_df["table_names"].item()+"테이블의 칼럼명, 한글칼럼명, 타입정보는 "+target_df["info_lst"].item() + "이다.\n"
+                            info_for_gpt = target_df["table_names"].item()+"테이블의 칼럼명은 "+ target_df["column_names_original"].item()+ "한글칼럼명은 "+target_df["column_names"].item()+"타입정보는 "+target_df["column_types"].item()+"이야."
                         except:
                             st.error(f"❗ {target}에 대한 테이블 정보가 없습니다.")
                 else:
