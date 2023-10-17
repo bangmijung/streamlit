@@ -56,7 +56,7 @@ def query_with_gpt(info_for_gpt, query):
         hint = "안타깝지만 우리에게 테이블 정보가 없는 상황이야. 자의적으로 해석하지 말고,"
     try:
         f_string = f"""{hint}
-{query} 쿼리의 의미에서 해석해줘. 그리고 존댓말로 간결하게 설명해줘."""
+{query} 쿼리의 의미를 해석해줘. 테이블에 대한 설명은 하지마. 그리고 존댓말로 간결하게 설명해줘."""
 
         messages = []
         if f_string:
