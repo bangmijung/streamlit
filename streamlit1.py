@@ -1,5 +1,6 @@
 import re
 import time
+import ast
 import json
 import datetime
 import numpy as np
@@ -35,7 +36,7 @@ def correct_indent(query, gpt_ver):
     if api_key != "":
         messages = []
         try:
-            f_string = f"{query} 이 쿼리의 인덴트를 읽기 쉽게 수정해줘. 쿼리 외에는 아무 말도 하지 마"
+            f_string = f"{query} 이 쿼리의 인덴트를 읽기 쉽게 수정해줘. 쿼리 외에는 아무 말도 하지 마. ```같은 것도 쓰지 마"
             if f_string:
                 messages.append({"role": "user", "content": f_string},)
                 chat = openai.ChatCompletion.create(model=gpt_ver, messages=messages)
@@ -47,16 +48,19 @@ def correct_indent(query, gpt_ver):
         reply = "-- 입력한 쿼리의 원본입니다.\n"+query
     return reply
 #--------------------------------------------------------------------------------------------------
-def query_with_gpt(table_info_original, table_info, query, col_info, gpt_ver):
+def query_with_gpt(info_for_gpt, query):
     messages = []
+    if info_for_gpt != []:
+        hint = f"""테이블 정보는 테이블명 : 테이블 칼럼 정보 로 구성되어 있어. 테이블 정보는 [칼럼명, 한글이름, 타입] 리스트로 구성되어 있어.
+테이블 정보는 {info_for_gpt}와 같아. 이 테이블 정보를 참고해서"""
+    else:
+        hint = "안타깝지만 우리에게 테이블 정보가 없는 상황이야. 자의적으로 해석하지 말고,"
     try:
-        f_string = f"""테이블 정보는 다음과 같아.
-테이블명 : {str(table_info)}, 테이블명 의미 : {str(table_info)}
-{str(col_info)}
-
-위 테이블 정보를 바탕으로 {query} 쿼리를 해석해줘.
+        f_string = f"""{hint}
+{query} 쿼리를 해석해줘.
 비전문가 입장에서 이해가 쉽게 최대한 쉬운 용어로 간결하게 설명해줘.
 그리고 존댓말로 대답해줘."""
+
         messages = []
         if f_string:
             messages.append(
@@ -73,7 +77,7 @@ def query_with_gpt(table_info_original, table_info, query, col_info, gpt_ver):
     return reply
 #--------------------------------------------------------------------------------------------------
 def submit_test():
-    with st.expander('사용자가 입력한 Query', expanded=True) :
+    with st.expander('* Query Decoder', expanded=True) :
         
         # progress bar
         my_bar = st.progress(0, text=None)
@@ -91,7 +95,7 @@ def submit_test():
                 if api_key == "":
                     st.write("API KEY를 입력하지 않아 당신이 입력한 쿼리의 들여쓰기를 교정할 수 없습니다.")
                 else:
-                    st.write("당신이 입력한 쿼리의 들여쓰기를 교정한 결과는 다음과 같습니다.")
+                    st.write("당신이 입력한 쿼리의 :blue[들여쓰기를 교정한 결과]는 다음과 같습니다.")
                 st.code(correct_indent(text, gpt_ver), language='sql', line_numbers=True)
                 st.caption("👋🏻 코드블럭 오른쪽 :blue[아이콘]을 클릭하면 query를 복사할 수 있습니다.")
                 
@@ -99,29 +103,39 @@ def submit_test():
         with st.chat_message("ai"):
             st.write("**Query Up! Robot**")
             with st.spinner('⚡ Wait for it...'):
+                
+                # GPT가 참고할 테이블 정보 딕셔너리
+                info_for_gpt = {}
+                
                 # 테이블 정보 조회
                 time.sleep(0.1)
+                st.write("당신이 입력한 쿼리에서 조회하는 :blue[테이블 정보]는 다음과 같습니다.")
                 pattern1 = re.compile(r'(?i)(?:FROM|JOIN)\s+`?([a-zA-Z_][a-zA-Z0-9_]*)`?')
                 table_lst = pattern1.findall(text)
                 if len(table_lst)>0:
-                    options = st.multiselect(
-                        'tables',
-                        table_lst,
-                        table_lst)
+                    options = st.multiselect('tables', table_lst, table_lst)
                     for target in table_lst:
-                        st.write("당신이 입력한 쿼리에서 조회하는 테이블 정보는 다음과 같습니다.")
                         time.sleep(0.1)
-                        target_df = total_df[total_df["table_names_original"].astype(str).str.contains(target)].reset_index(drop=True)
-                        # 칼럼 별 이름, 한글이름, 데이터 타입 정보가 담긴 데이터프레임
-                        col_info = [[x[1],y[1],z] for x, y, z in zip(target_df["column_names_original"][0],target_df["column_names"][0],target_df["column_types"][0])]
-                        col_info[0] = ["table_names_original","table_names","type"]
-                        st.data_editor(pd.DataFrame(col_info[1:],columns=col_info[0]))
-                        st.write("👋🏻 코드블럭 오른쪽 :blue[아이콘]을 클릭하면 query를 복사할 수 있습니다.")
+                        try:
+                            target_df = total_df[total_df["table_names_original"].astype(str).str.contains(target)]
+                            # 출처, 데이터베이스 ID, 같은 스키마를 공유하는 테이블명
+                            st.write("✔ 출처 : "+target_df["source"].item())
+                            st.write("✔ 데이터베이스 ID : "+target_df["db_id"].item())
+                            st.write("✔ 테이블명 : "+target_df["table_names_original"].item())
+                            # 칼럼 별 이름, 한글이름, 데이터 타입 정보가 담긴 데이터프레임
+                            st.write(pd.DataFrame(ast.literal_eval(target_df["info_lst"].item()),columns=["column_names_original", "column_names", "type"]))
+                            info_for_gpt.update({target_df["table_names"].item():target_df["info_lst"].item()})
+                        except:
+                            st.error(f"❗ {target}에 대한 테이블 정보가 없습니다.")
                 else:
-                    st.error("❗ 테이블 정보를 조회할 수 없어 입력된 SQL을 기반으로 해석하겠습니다.")
+                    st.error("❗ 입력하신 쿼리에서 발견한 다음 테이블 정보가 없습니다.")
+                    options = st.multiselect('tables', table_lst, table_lst)
                     
+        # assistant message
+        with st.chat_message("ai"):
+            st.write("**Query Up! Robot**")
             with st.spinner('⚡ Wait for it...'):
-                st.info(query_with_gpt(target_df["table_names_original"][0],target_df["table_names"][0], text, col_info, gpt_ver))
+                st.info(query_with_gpt(info_for_gpt, text))
 #--------------------------------------------------------------------------------------------------                    
 def chat_with_gpt():
     with st.container():
@@ -161,6 +175,7 @@ def chat_with_gpt():
         except:
             st.info("입력하신 API KEY를 다시 확인해주세요!")
 ###################################################################################################
+# 6. report
 if selected2 == "Query decoder":
     with st.form(key="my_form") as form1:
         text = st.text_area(
@@ -177,6 +192,7 @@ if selected2 == "Query decoder":
         st.success("✅ SQL 쿼리가 정상적으로 입력되었습니다!")
         submit_test()
 ###################################################################################################
+# 7. chat
 if selected2 == "Chat with GPT":
     chat_with_gpt()
 ###################################################################################################
