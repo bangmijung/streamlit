@@ -51,8 +51,7 @@ def correct_indent(query, gpt_ver):
 def query_with_gpt(info_for_gpt, query):
     messages = []
     if info_for_gpt != []:
-        hint = f"""테이블 정보는 테이블명 : 테이블 칼럼 정보 로 구성되어 있어. 테이블 정보는 [칼럼명, 한글이름, 타입] 리스트로 구성되어 있어.
-테이블 정보는 {info_for_gpt}와 같아. 이 테이블 정보를 참고해서"""
+        hint = f"""테이블 정보는 {info_for_gpt}와 같아. 이 테이블 정보를 참고해서"""
     else:
         hint = "안타깝지만 우리에게 테이블 정보가 없는 상황이야. 자의적으로 해석하지 말고,"
     try:
@@ -135,7 +134,10 @@ def submit_test():
         with st.chat_message("ai"):
             st.write("**Query Up! Robot**")
             with st.spinner('⚡ Wait for it...'):
-                st.info(query_with_gpt(info_for_gpt, text))
+                try:
+                    st.info(query_with_gpt(info_for_gpt, text))
+                except:
+                    st.error("❗ 입력하신 쿼리를 해석할 수 없습니다.")
 #--------------------------------------------------------------------------------------------------                    
 def chat_with_gpt():
     with st.container():
