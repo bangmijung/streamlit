@@ -10,12 +10,10 @@ from streamlit_tags import st_tags
 from streamlit_option_menu import option_menu
 import openai
 ###################################################################################################
-# 0. page config & title
 st.set_page_config(layout="centered", page_title="MBTMI vs ChatGPT4", page_icon="💾")
 st.title("🥇 MBTMI vs ChatGPT4")
 st.text("구독 없이 GPT4와 대화할 수 있는 환경입니다. 대화내용은 저장되지 않으니 조심하세요~")
 ###################################################################################################
-# 2. gpt info - api key, version
 gpt_ver = st.radio(label = "GPT3.5-turbo or GPT3.5-turbo-16k or GPT4.0", options=["gpt-3.5-turbo", "gpt-3.5-turbo-16k","gpt-4"])
 st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 api_key = st.text_input(label="Open AI에서 발급받은 API KEY를 입력하세요!",
@@ -62,7 +60,5 @@ def chat_with_gpt():
         except:
             st.info("입력하신 API KEY를 다시 확인해주세요!")
 ###################################################################################################
-# 7. chat
-if selected2 == "Chat with GPT":
-    chat_with_gpt()
+chat_with_gpt()
 ###################################################################################################
