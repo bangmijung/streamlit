@@ -18,7 +18,7 @@ gpt_ver = st.radio(label = "GPT3.5-turbo or GPT3.5-turbo-16k or GPT4.0", options
 st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 api_key = st.text_input(label="Open AI에서 발급받은 API KEY를 입력하세요!",
                         type="password", placeholder="API KEY")
-openai.api_key = api_key
+openai.api_key = "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"
 st.divider()
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------                    
