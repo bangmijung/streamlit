@@ -11,7 +11,7 @@ from streamlit_option_menu import option_menu
 import openai
 ###################################################################################################
 st.set_page_config(layout="centered", page_title="MBTMI vs ChatGPT4", page_icon="💾")
-st.title("🥇 MBTMI vs ChatGPT4")
+st.title("🥇 ChatGPT3.5 vs ChatGPT4")
 st.text("구독 없이 GPT4와 대화할 수 있는 환경입니다. 대화내용은 저장되지 않으니 조심하세요~")
 ###################################################################################################
 gpt_ver = st.radio(label = "GPT3.5-turbo or GPT3.5-turbo-16k or GPT4.0", options=["gpt-3.5-turbo", "gpt-3.5-turbo-16k","gpt-4"])
